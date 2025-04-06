@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+// Import Pages
 import 'pages/home_page.dart';
 import 'pages/chatbot_page.dart';
 import 'pages/search_page.dart';
@@ -9,14 +12,29 @@ import 'pages/DonationFormPage.dart';
 import 'pages/more_genres_page.dart';
 import 'pages/profile_page.dart';
 import 'pages/settings_page.dart';
-import 'providers/theme_provider.dart'; // We'll create this
+import 'providers/theme_provider.dart';
 import 'pages/Signinpage.dart';
 import 'pages/LoginPage.dart';
 import 'pages/SignupPage.dart';
-import 'pages/genre_tile.dart';
-import 'pages/genre_books_page.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Firebase initialization for Web and Mobile
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+        apiKey: "AIzaSyCM93MqbupJTzOY69qEQX92khjV-S7RdAw",
+        appId: "1:316237683608:web:01875544f7d0b5e49a69ed",
+        messagingSenderId: "316237683608",
+        projectId: "hack-bodhi",
+      ),
+    );
+  } else {
+    await Firebase.initializeApp();
+  }
+
+  // Load theme preference
   final prefs = await SharedPreferences.getInstance();
   bool isDarkMode = prefs.getBool('isDarkMode') ?? false;
 
@@ -53,7 +71,6 @@ class MyApp extends StatelessWidget {
         '/signin': (context) => const SigninPage(),
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignupPage(),
-        
       },
     );
   }
