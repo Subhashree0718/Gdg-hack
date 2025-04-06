@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "316237683608",
+    "project_id": "hack-bodhi",
+    "storage_bucket": "hack-bodhi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316237683608:android:78b38b1e4ce48f3c9a69ed",
+        "android_client_info": {
+          "package_name": "com.example.bodhi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmhXAW3fveKkuBDF4ddhPrc4h6BmHwejU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
